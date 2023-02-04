@@ -22,13 +22,13 @@ export const Button = ({
   children,
   onClick,
   className,
-  type,
+  type = 'button',
   disabled
 }: ButtonProps) => (
   <button
     onClick={onClick}
     className={className}
-    type={type || 'button'}
+    type={type}
     disabled={disabled}
   >
     {children}
