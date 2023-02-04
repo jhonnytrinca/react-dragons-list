@@ -1,11 +1,11 @@
 import { Toast } from 'components';
-import Login from 'pages/Login/Login';
+import Home from 'pages/Home/index.';
 
 function App() {
   return (
     <>
       <Toast />
-      <Login />
+      <Home />
     </>
   );
 }

@@ -60,9 +60,11 @@ const Login = () => {
         </div>
       </div>
 
-      <Modal isOpen={openModal} className='w-full sm:w-3/4 lg:w-1/3 h-inherit'>
-        <RegisterForm closeModal={() => setOpenModal(false)} />
-      </Modal>
+      {openModal && (
+        <Modal className='w-full sm:w-3/4 lg:w-1/3 h-inherit'>
+          <RegisterForm closeModal={() => setOpenModal(false)} />
+        </Modal>
+      )}
     </FormikProvider>
   );
 };
