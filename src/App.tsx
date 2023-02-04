@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FormikProvider, useFormik } from 'formik';
+import { useState } from 'react';
+import { Button, Input, Toast } from './components';
+import * as yup from 'yup';
+import { toast } from 'react-hot-toast';
+
+const validationSchema = yup.object().shape({
+  teste: yup.string().required('Campo obrigatório')
+});
 
 function App() {
+  const [value, setValue] = useState('');
+
+  const formik = useFormik({
+    initialValues: { teste: '' },
+    validationSchema,
+    onSubmit: (values) => console.log(values)
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <FormikProvider value={formik}>
+      <Toast />
+      <div className='p-8'>
+        <Input
+          placeholder='Informe'
+          onChange={(e) => setValue(e.target.value)}
+          value={value}
+          name='teste'
+        />
+
+        <Button
+          onClick={() => {
+            toast.error('erro');
+            toast.success('sucesso');
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          +
+        </Button>
+      </div>
+    </FormikProvider>
   );
 }
 
