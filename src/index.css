@@ -24,3 +24,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.actionsButton {
+  @apply text-gray-500 hover:text-white p-2 rounded-md;
+}
