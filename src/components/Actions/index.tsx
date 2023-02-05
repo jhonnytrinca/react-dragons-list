@@ -14,7 +14,7 @@ type ActionsProps = {
   handleEdit: () => void;
   handleDelete: () => void;
   handleDetails: () => void;
-  id: string;
+  id?: string;
 };
 
 export const Actions = ({

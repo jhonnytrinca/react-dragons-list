@@ -1,4 +1,5 @@
 import { Actions } from 'components';
+import { IDragon } from 'pages/Form/validation';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { dragonImages } from './dragonImages';
@@ -6,25 +7,16 @@ import { dragonImages } from './dragonImages';
 /** Componente Card
  *
  * @param {Object} data - dados a serem exibidos
- * @param {Function} handleEdit - função para edição do item
  * @param {Function} handleDelete - função para remoção do item
- * @param {Function} handleDetails - função para ver detalhes do item
  *
  */
 
 type CardProps = {
-  data: {
-    createdAt: string;
-    name: string;
-    type: string;
-    histories?: string;
-    id: string;
-  };
-  handleDelete: () => void;
-  handleDetails: () => void;
+  data: IDragon;
+  handleDelete: (id: string) => void;
 };
 
-export const Card = ({ data, handleDelete, handleDetails }: CardProps) => {
+export const Card = ({ data, handleDelete }: CardProps) => {
   const navigate = useNavigate();
   const randomImage = useMemo(() => {
     return dragonImages[Math.floor(Math.random() * dragonImages.length)];
@@ -48,7 +40,7 @@ export const Card = ({ data, handleDelete, handleDetails }: CardProps) => {
             handleEdit={() =>
               navigate(`form/${data?.id}`, { state: { photo: randomImage } })
             }
-            handleDelete={handleDelete}
+            handleDelete={() => handleDelete(data.id!)}
             handleDetails={() =>
               navigate(`${data?.id}`, { state: { photo: randomImage } })
             }

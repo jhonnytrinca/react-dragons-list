@@ -2,20 +2,43 @@ import { Button, Input, Modal } from 'components';
 import { FormikProvider, useFormik } from 'formik';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { IDragon, initialValues, validationSchema } from './validation';
+import useSWR, { mutate } from 'swr';
+import DragonsService from 'service';
+import toast from 'react-hot-toast';
 
 const Form = () => {
   const { id } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
 
+  const { data, isLoading } = useSWR(
+    id ? `/${id}` : '',
+    DragonsService.getById,
+    {
+      fallbackData: initialValues
+    }
+  );
+
   const formik = useFormik<IDragon>({
-    initialValues,
+    initialValues: data,
     validationSchema,
-    onSubmit: (values) => handleCreateUser(values)
+    onSubmit: (values) => handleSubmit(values)
   });
 
-  const handleCreateUser = (values: any) => {
-    console.log(values);
+  const handleSubmit = async (values: any) => {
+    try {
+      id
+        ? await DragonsService.update(values)
+        : await DragonsService.create({
+            ...values,
+            createdAt: new Date().toISOString()
+          });
+      toast.success(`Dragão ${id ? 'atualizado' : 'cadastrado'} com sucesso!`);
+      mutate('/');
+      navigate('/');
+    } catch (e) {
+      toast.error('Ocorreu um erro, tente novamente!');
+    }
   };
 
   return (
