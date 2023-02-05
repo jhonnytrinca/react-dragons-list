@@ -43,12 +43,12 @@ const Form = () => {
           onSubmit={(values) => handleSubmit(values)}
         >
           {({ handleSubmit, isValid }) => (
-            <div className='flex gap-10'>
+            <div className='flex flex-col lg:flex-row gap-10'>
               {state?.photo && (
                 <img
                   src={state?.photo}
                   alt='Imagem de dragão'
-                  className='w-96 h-96'
+                  className='w-48 h-48 sm:w-96 sm:h-96 self-center'
                 />
               )}
               <div className='flex flex-col gap-10 justify-between w-full'>

@@ -11,19 +11,19 @@ const Details = () => {
   const { data, isLoading } = useSWR(`/${id}`, DragonsService.getById);
 
   return (
-    <Modal className='w-full sm:w-3/4 lg:w-1/2 h-inherit pb-3'>
+    <Modal className='w-full sm:w-3/4 lg:w-1/2 h-inherit lg:pb-3'>
       {isLoading ? (
         <Loading />
       ) : (
-        <div className='flex gap-10'>
+        <div className='flex flex-col lg:flex-row gap-10'>
           {state?.photo && (
             <img
               src={state?.photo}
               alt='Imagem de dragão'
-              className='w-80 h-80'
+              className='w-72 h-72 sm:w-80 sm:h-80 self-center'
             />
           )}
-          <div className='flex flex-col gap-4 w-1/2'>
+          <div className='flex flex-col gap-4 lg:w-1/2'>
             <h2 className='text-blue-600 font-bold text-2xl font-poppins'>
               Detalhes do dragão.
             </h2>
