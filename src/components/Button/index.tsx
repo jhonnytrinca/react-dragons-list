@@ -7,6 +7,7 @@ import { ReactNode } from 'react';
  * @param {string} className - classes adicionais de estilização
  * @param {string} type - indicador de tipo do botão. Padrão: 'button'
  * @param {boolean} disabled - boolean que informa se o botão está desativado ou não
+ * @param {string} variant - variantes com estilos pré-definidos para o botão
  *
  */
 
@@ -16,6 +17,7 @@ type ButtonProps = {
   className?: string;
   type?: 'button' | 'submit';
   disabled?: boolean;
+  variant?: 'primary' | 'secondary' | 'tertiary';
 };
 
 export const Button = ({
@@ -23,11 +25,20 @@ export const Button = ({
   onClick,
   className,
   type = 'button',
-  disabled
+  disabled,
+  variant
 }: ButtonProps) => (
   <button
     onClick={onClick}
-    className={className}
+    className={`flex items-center justify-center ${className} ${
+      variant === 'primary'
+        ? 'primaryButton'
+        : variant === 'secondary'
+        ? 'secondaryButton'
+        : variant === 'tertiary'
+        ? 'tertiaryButton'
+        : ''
+    } `}
     type={type}
     disabled={disabled}
   >

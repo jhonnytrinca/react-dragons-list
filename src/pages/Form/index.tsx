@@ -52,7 +52,7 @@ const Form = () => {
                 />
               )}
               <div className='flex flex-col gap-10 justify-between w-full'>
-                <h2 className='text-blue-600 font-bold text-2xl font-poppins'>
+                <h2 className='mainColor font-bold text-2xl font-poppins'>
                   {id ? 'Edite' : 'Crie'} seu dragão.
                 </h2>
                 <Input
@@ -74,7 +74,8 @@ const Form = () => {
                   <Button
                     type='submit'
                     onClick={() => navigate(-1)}
-                    className='w-full sm:w-1/3 text-gray-400 py-2 rounded-md border border-gray-300 hover:border-gray-500 hover:text-gray-700 disabled:opacity-60 transition-colors '
+                    className='w-full sm:w-1/3'
+                    variant='secondary'
                   >
                     Voltar a lista
                   </Button>
@@ -82,7 +83,8 @@ const Form = () => {
                     type='submit'
                     onClick={handleSubmit}
                     disabled={!isValid}
-                    className='w-full sm:w-1/3 text-white py-2 rounded-md bg-blue-700 hover:enabled:bg-blue-500 disabled:opacity-60 transition-colors '
+                    className='w-full sm:w-1/3'
+                    variant='primary'
                   >
                     {id ? 'Editar' : 'Criar'} dragão
                   </Button>

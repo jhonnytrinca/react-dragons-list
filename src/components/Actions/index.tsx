@@ -25,7 +25,10 @@ export const Actions = ({
 }: ActionsProps) => {
   const ActionButton = ({ onClick, icon: Icon, bg, id, content }: any) => (
     <Tooltip id={id} content={content}>
-      <Button onClick={onClick} className={`actionsButton ${bg}`}>
+      <Button
+        onClick={onClick}
+        className={`actionsButton ${bg} dark:text-gray-100`}
+      >
         <Icon />
       </Button>
     </Tooltip>

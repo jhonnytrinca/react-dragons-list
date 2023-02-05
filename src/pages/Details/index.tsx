@@ -24,7 +24,7 @@ const Details = () => {
             />
           )}
           <div className='flex flex-col gap-4 lg:w-1/2'>
-            <h2 className='text-blue-600 font-bold text-2xl font-poppins'>
+            <h2 className='mainColor font-bold text-2xl font-poppins'>
               Detalhes do dragão.
             </h2>
             <InfoText name='Nome' text={data?.name} />
@@ -41,7 +41,8 @@ const Details = () => {
             <Button
               type='submit'
               onClick={() => navigate(-1)}
-              className='w-full sm:w-1/3 text-gray-400 py-2 rounded-md border border-gray-300 hover:border-gray-500 hover:text-gray-700 disabled:opacity-60 transition-colors '
+              className='w-full sm:w-1/3'
+              variant='secondary'
             >
               Voltar a lista
             </Button>

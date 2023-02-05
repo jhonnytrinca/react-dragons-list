@@ -17,6 +17,34 @@
   .animateTitle {
     @apply inline-block relative animate-title-animation;
   }
+
+  .mainColor {
+    @apply text-blue-600 dark:text-blue-200;
+  }
+
+  .bgMainColor {
+    @apply bg-white dark:bg-gray-600;
+  }
+
+  .textMainColor {
+    @apply text-gray-500 dark:text-gray-100;
+  }
+
+  .buttonMainColor {
+    @apply bg-blue-600 dark:bg-blue-200;
+  }
+
+  .primaryButton {
+    @apply buttonMainColor text-white dark:text-gray-700 py-2 rounded-md hover:enabled:bg-blue-500 dark:hover:enabled:bg-blue-400 disabled:opacity-60 transition-colors;
+  }
+
+  .secondaryButton {
+    @apply py-2 rounded-md border border-gray-300 hover:border-gray-500 dark:hover:border-gray-100 text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 disabled:opacity-60 transition-colors;
+  }
+
+  .tertiaryButton {
+    @apply buttonMainColor sm:mr-10 text-xs px-2 rounded-full gap-2 text-white dark:text-gray-700;
+  }
 }
 
 body {

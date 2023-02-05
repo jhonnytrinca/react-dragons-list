@@ -24,11 +24,11 @@ export const Card = ({ data, handleDelete }: CardProps) => {
 
   return (
     <>
-      <div className='rounded-xl w-40 md:w-48 h-fit flex flex-col gap-2 relative hover:transition-opacity shadow-xl hover:scale-105	bg-white dark:bg-gray-600 p-3'>
+      <div className='rounded-xl w-40 md:w-48 h-fit flex flex-col gap-2 relative hover:transition-opacity shadow-xl hover:scale-105	bgMainColor p-3'>
         <img src={randomImage} alt='Imagem de dragão' />
         <div className='overflow-hidden whitespace-nowrap text-center'>
           <span
-            className={`text-sm md:text-lg font-semibold min-w-full px-2 uppercase dark:text-white font-poppins hover:animateTitle     
+            className={`text-sm md:text-lg font-semibold min-w-full px-2 uppercase textMainColor font-poppins hover:animateTitle     
             `}
           >
             #{data?.id} - {data?.name || ''}
