@@ -1,11 +1,22 @@
 import { Toast } from 'components';
-import Home from 'pages/Home/index.';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+const Login = React.lazy(() => import('pages/Login'));
+const Home = React.lazy(() => import('pages/Home'));
 
 function App() {
   return (
     <>
-      <Toast />
-      <Home />
+      <BrowserRouter>
+        <Toast />
+        <React.Suspense fallback={null}>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />}></Route>
+          </Routes>
+        </React.Suspense>
+      </BrowserRouter>
     </>
   );
 }
