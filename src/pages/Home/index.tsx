@@ -3,6 +3,8 @@ import { Outlet } from 'react-router-dom';
 import useSWR from 'swr';
 import DragonsService from 'service';
 import toast from 'react-hot-toast';
+import { motion } from 'framer-motion';
+import { animationContainer } from 'animations';
 
 const Home = () => {
   const { data, isLoading, mutate } = useSWR('/', DragonsService.getAll, {
@@ -27,11 +29,16 @@ const Home = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div className='flex gap-4 sm:gap-10 flex-wrap justify-center'>
+          <motion.div
+            className='flex gap-4 sm:gap-10 flex-wrap justify-center'
+            variants={animationContainer}
+            initial='hidden'
+            animate='visible'
+          >
             {data.map((item) => (
               <Card data={item} handleDelete={handleDelete} />
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
 

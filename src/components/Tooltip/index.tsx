@@ -20,6 +20,6 @@ export const Tooltip = ({ id, children, ...rest }: TooltipProps) => (
   <div id={id} className='inline-block'>
     {children}
 
-    <ReactTooltip anchorId={id} {...rest} place='bottom' />
+    <ReactTooltip anchorId={id} {...rest} place='bottom' className='z-[999]' />
   </div>
 );

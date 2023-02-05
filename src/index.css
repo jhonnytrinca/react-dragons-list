@@ -43,7 +43,7 @@
   }
 
   .tertiaryButton {
-    @apply buttonMainColor sm:mr-10 text-xs px-2 rounded-full gap-2 text-white dark:text-gray-700;
+    @apply buttonMainColor sm:mr-10 text-xs px-2 rounded-full gap-2 text-white dark:text-gray-700 hover:shadow-lg;
   }
 }
 

@@ -5,6 +5,8 @@ import { initialValues, validationSchema } from './validation';
 import useSWR, { mutate } from 'swr';
 import DragonsService from 'service';
 import toast from 'react-hot-toast';
+import { motion } from 'framer-motion';
+import { animationContainer, animationItem } from 'animations';
 
 const Form = () => {
   const { id } = useParams();
@@ -43,18 +45,27 @@ const Form = () => {
           onSubmit={(values) => handleSubmit(values)}
         >
           {({ handleSubmit, isValid }) => (
-            <div className='flex flex-col lg:flex-row gap-10'>
+            <motion.div
+              className='flex flex-col lg:flex-row gap-10'
+              initial='hidden'
+              animate='visible'
+              variants={animationContainer}
+            >
               {state?.photo && (
-                <img
+                <motion.img
                   src={state?.photo}
                   alt='Imagem de dragão'
                   className='w-48 h-48 sm:w-96 sm:h-96 self-center'
+                  variants={animationItem}
                 />
               )}
               <div className='flex flex-col gap-10 justify-between w-full'>
-                <h2 className='mainColor font-bold text-2xl font-poppins'>
+                <motion.h2
+                  className='mainColor font-bold text-2xl font-poppins'
+                  variants={animationItem}
+                >
                   {id ? 'Edite' : 'Crie'} seu dragão.
-                </h2>
+                </motion.h2>
                 <Input
                   name='name'
                   placeholder='Informe o nome do dragão'
@@ -70,10 +81,13 @@ const Form = () => {
                   placeholder='Informe a história a que o dragão faz parte'
                   label='História'
                 />
-                <div className='flex justify-between gap-6'>
+                <motion.div
+                  className='flex justify-between gap-6'
+                  variants={animationItem}
+                >
                   <Button
                     type='submit'
-                    onClick={() => navigate(-1)}
+                    onClick={() => navigate('/')}
                     className='w-full sm:w-1/3'
                     variant='secondary'
                   >
@@ -88,9 +102,9 @@ const Form = () => {
                   >
                     {id ? 'Editar' : 'Criar'} dragão
                   </Button>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           )}
         </Formik>
       )}

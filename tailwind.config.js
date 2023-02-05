@@ -24,6 +24,9 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif']
+      },
+      transitionProperty: {
+        width: 'width'
       }
     }
   },

@@ -1,4 +1,6 @@
+import { animationItem } from 'animations';
 import { Field, FieldProps } from 'formik';
+import { motion } from 'framer-motion';
 import { HiExclamationCircle } from 'react-icons/hi';
 
 /** Componente Input
@@ -33,7 +35,7 @@ export const Input = ({
     {({ field, meta }: FieldProps) => {
       const showError = !!meta.error && !!meta.touched;
       return (
-        <div className='w-full'>
+        <motion.div className='w-full' variants={animationItem}>
           <div
             className={`relative flex items-center w-full border-2 bgMainColor rounded-md py-1 px-4 ${className} ${
               showError
@@ -58,7 +60,7 @@ export const Input = ({
               <span>{meta.error}</span>
             </div>
           )}
-        </div>
+        </motion.div>
       );
     }}
   </Field>

@@ -1,3 +1,4 @@
+import { motion, AnimationProps, HoverHandlers } from 'framer-motion';
 import { ReactNode } from 'react';
 
 /** Componente Button
@@ -26,9 +27,10 @@ export const Button = ({
   className,
   type = 'button',
   disabled,
-  variant
-}: ButtonProps) => (
-  <button
+  variant,
+  ...rest
+}: ButtonProps & AnimationProps & HoverHandlers) => (
+  <motion.button
     onClick={onClick}
     className={`flex items-center justify-center ${className} ${
       variant === 'primary'
@@ -41,7 +43,8 @@ export const Button = ({
     } `}
     type={type}
     disabled={disabled}
+    {...rest}
   >
     {children}
-  </button>
+  </motion.button>
 );

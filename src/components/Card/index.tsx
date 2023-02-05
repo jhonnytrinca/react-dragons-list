@@ -1,4 +1,6 @@
+import { animationItem } from 'animations';
 import { Actions } from 'components';
+import { motion } from 'framer-motion';
 import { IDragon } from 'pages/Form/validation';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -23,32 +25,33 @@ export const Card = ({ data, handleDelete }: CardProps) => {
   }, []);
 
   return (
-    <>
-      <div className='rounded-xl w-40 md:w-48 h-fit flex flex-col gap-2 relative hover:transition-opacity shadow-xl hover:scale-105	bgMainColor p-3'>
-        <img src={randomImage} alt='Imagem de dragão' />
-        <div className='overflow-hidden whitespace-nowrap text-center'>
-          <span
-            className={`text-sm md:text-lg font-semibold min-w-full px-2 uppercase textMainColor font-poppins hover:animateTitle     
+    <motion.div
+      className='rounded-xl w-40 md:w-48 h-fit flex flex-col gap-2 relative shadow hover:shadow-xl bgMainColor p-3'
+      variants={animationItem}
+    >
+      <img src={randomImage} alt='Imagem de dragão' />
+      <div className='overflow-hidden whitespace-nowrap text-center'>
+        <span
+          className={`text-sm md:text-lg font-semibold min-w-full px-2 uppercase textMainColor font-poppins hover:animateTitle     
             `}
-          >
-            #{data?.id} - {data?.name || ''}
-          </span>
-        </div>
-
-        <div className='self-center pl-2 pr-4 md:px-3'>
-          <Actions
-            handleEdit={() =>
-              navigate(`form/${data?.id}`, { state: { photo: randomImage } })
-            }
-            handleDelete={() => handleDelete(data.id!)}
-            handleDetails={() =>
-              navigate(`${data?.id}`, { state: { photo: randomImage } })
-            }
-            id={data?.id}
-          />
-        </div>
+        >
+          #{data?.id} - {data?.name || ''}
+        </span>
       </div>
-    </>
+
+      <div className='self-center pl-2 pr-4 md:px-3'>
+        <Actions
+          handleEdit={() =>
+            navigate(`form/${data?.id}`, { state: { photo: randomImage } })
+          }
+          handleDelete={() => handleDelete(data.id!)}
+          handleDetails={() =>
+            navigate(`${data?.id}`, { state: { photo: randomImage } })
+          }
+          id={data?.id}
+        />
+      </div>
+    </motion.div>
   );
 };
 
