@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/react-dragons-list/static/css/main.913d1266.css",
+    "main.js": "/react-dragons-list/static/js/main.e26fa7ba.js",
+    "static/js/787.05afbeaf.chunk.js": "/react-dragons-list/static/js/787.05afbeaf.chunk.js",
+    "static/media/Dragon-amico.svg": "/react-dragons-list/static/media/Dragon-amico.72f1587fbe7139572d6aedcc0c6df3fd.svg",
+    "static/media/Dragon-amico2.svg": "/react-dragons-list/static/media/Dragon-amico2.119a8bb2494682f01265e1026af18c63.svg",
+    "static/media/Dragon-amico1.svg": "/react-dragons-list/static/media/Dragon-amico1.37a2b1f2ab819a24107b9175aaa7b4bc.svg",
+    "static/media/Dragon-rafiki.svg": "/react-dragons-list/static/media/Dragon-rafiki.6e165ee76ccf3b03ad962fdf690f37b1.svg",
+    "static/media/Dragon-rafiki2.svg": "/react-dragons-list/static/media/Dragon-rafiki2.8738bf8a0b2df967e6bef9cafe9a783c.svg",
+    "static/media/Dragon-bro.svg": "/react-dragons-list/static/media/Dragon-bro.27f81aad62dea3a1ccf5155c360987f7.svg",
+    "static/media/Dragon-rafiki1.svg": "/react-dragons-list/static/media/Dragon-rafiki1.409951848de92db081cb29342c9865ca.svg",
+    "static/media/Dragon-bro2.svg": "/react-dragons-list/static/media/Dragon-bro2.a2abf58e9d4c22381e5818287da09e4b.svg",
+    "static/media/Dragon-bro1.svg": "/react-dragons-list/static/media/Dragon-bro1.85502e3f47f56085223980c0a54521c4.svg",
+    "static/media/Dragon-pana.svg": "/react-dragons-list/static/media/Dragon-pana.4c1ca1aba77833206ffb9aa79a54eb18.svg",
+    "static/media/login-dragon.svg": "/react-dragons-list/static/media/login-dragon.0dddfa18b2c79a9bf0e5aa6cad7d3803.svg",
+    "static/media/Dragon-pana2.svg": "/react-dragons-list/static/media/Dragon-pana2.1af5c33be22e4a5f3f86951172bf1a58.svg",
+    "static/media/Dragon-pana1.svg": "/react-dragons-list/static/media/Dragon-pana1.a7c4a4035f4519f9aa20503b8614a984.svg",
+    "index.html": "/react-dragons-list/index.html",
+    "main.913d1266.css.map": "/react-dragons-list/static/css/main.913d1266.css.map",
+    "main.e26fa7ba.js.map": "/react-dragons-list/static/js/main.e26fa7ba.js.map",
+    "787.05afbeaf.chunk.js.map": "/react-dragons-list/static/js/787.05afbeaf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.913d1266.css",
+    "static/js/main.e26fa7ba.js"
+  ]
+}
