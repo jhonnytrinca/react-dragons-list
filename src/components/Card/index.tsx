@@ -46,10 +46,12 @@ export const Card = ({ data, handleDelete, handleDetails }: CardProps) => {
         <div className='self-center pl-2 pr-4 md:px-3'>
           <Actions
             handleEdit={() =>
-              navigate(`/form/${data?.id}`, { state: { photo: randomImage } })
+              navigate(`form/${data?.id}`, { state: { photo: randomImage } })
             }
             handleDelete={handleDelete}
-            handleDetails={handleDetails}
+            handleDetails={() =>
+              navigate(`${data?.id}`, { state: { photo: randomImage } })
+            }
             id={data?.id}
           />
         </div>

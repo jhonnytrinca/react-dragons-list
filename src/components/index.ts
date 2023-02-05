@@ -6,4 +6,5 @@ export { Header } from './Header';
 export { Actions } from './Actions';
 export { Card } from './Card';
 export { Tooltip } from './Tooltip';
+export { InfoText } from './InfoText';
 
