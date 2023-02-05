@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}>
           {['form', 'form/:id'].map((path: string) => (
-            <Route path={path} element={<Form />} />
+            <Route path={path} element={<Form />} key={path} />
           ))}
           <Route path=':id' element={<Details />} />
         </Route>

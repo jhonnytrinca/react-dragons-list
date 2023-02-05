@@ -21,6 +21,12 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'tertiary';
 };
 
+const variantStyle = {
+  primary: 'primaryButton',
+  secondary: 'secondaryButton',
+  tertiary: 'tertiaryButton'
+};
+
 export const Button = ({
   children,
   onClick,
@@ -33,13 +39,7 @@ export const Button = ({
   <motion.button
     onClick={onClick}
     className={`flex items-center justify-center ${className} ${
-      variant === 'primary'
-        ? 'primaryButton'
-        : variant === 'secondary'
-        ? 'secondaryButton'
-        : variant === 'tertiary'
-        ? 'tertiaryButton'
-        : ''
+      !!variant ? variantStyle[variant] : ''
     } `}
     type={type}
     disabled={disabled}

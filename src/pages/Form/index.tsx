@@ -2,49 +2,27 @@ import { Button, Input, Loading, Modal } from 'components';
 import { Formik } from 'formik';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { initialValues, validationSchema } from './validation';
-import useSWR, { mutate } from 'swr';
-import DragonsService from 'services';
-import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { animationContainer, animationItem } from 'animations';
+import { useDragons } from 'hooks/useDragons';
 
 const Form = () => {
   const { id } = useParams();
   const { state } = useLocation();
+  const { dragon, loadingDragon, handleSubmit } = useDragons();
   const navigate = useNavigate();
-
-  const { data, isLoading } = useSWR(
-    id ? `/${id}` : '',
-    DragonsService.getById
-  );
-
-  const handleSubmit = async (values: any) => {
-    try {
-      id
-        ? await DragonsService.update(values)
-        : await DragonsService.create({
-            ...values,
-            createdAt: new Date().toISOString()
-          });
-      toast.success(`Dragão ${id ? 'atualizado' : 'cadastrado'} com sucesso!`);
-      mutate('/');
-      navigate('/');
-    } catch (e) {
-      toast.error('Ocorreu um erro, tente novamente!');
-    }
-  };
 
   return (
     <Modal className='w-full sm:w-3/4 lg:w-3/5 h-inherit'>
-      {isLoading ? (
+      {loadingDragon ? (
         <Loading />
       ) : (
         <Formik
-          initialValues={{ ...initialValues, ...data }}
+          initialValues={{ ...initialValues, ...dragon }}
           validationSchema={validationSchema}
           onSubmit={(values) => handleSubmit(values)}
         >
-          {({ handleSubmit, isValid }) => (
+          {({ handleSubmit, isValid, isSubmitting }) => (
             <motion.div
               className='flex flex-col lg:flex-row gap-10'
               initial='hidden'
@@ -96,11 +74,15 @@ const Form = () => {
                   <Button
                     type='submit'
                     onClick={handleSubmit}
-                    disabled={!isValid}
+                    disabled={!isValid || isSubmitting}
                     className='w-full sm:w-1/3'
                     variant='primary'
                   >
-                    {id ? 'Editar' : 'Criar'} dragão
+                    {isSubmitting
+                      ? 'Carregando...'
+                      : id
+                      ? 'Editar dragão'
+                      : 'Criar dragão'}
                   </Button>
                 </motion.div>
               </div>

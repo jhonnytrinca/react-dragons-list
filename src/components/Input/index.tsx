@@ -36,7 +36,7 @@ export const Input = ({
 }: InputProps) => (
   <Field name={name}>
     {({ field, meta }: FieldProps) => {
-      const showError = !!meta.error && !!meta.touched;
+      const showError = !!meta.error && meta.touched;
       return (
         <motion.div className='w-full' variants={animationItem}>
           <div

@@ -1,20 +1,17 @@
 import { Button, InfoText, Loading, Modal } from 'components';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import useSWR from 'swr';
-import DragonsService from 'services';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animationContainer, animationItem } from 'animations';
+import { useDragons } from 'hooks/useDragons';
 
 const Details = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { id } = useParams();
-
-  const { data, isLoading } = useSWR(`/${id}`, DragonsService.getById);
+  const { dragon, loadingDragon } = useDragons();
 
   return (
     <Modal className='w-full sm:w-3/4 lg:w-1/2 h-inherit lg:pb-3'>
-      {isLoading ? (
+      {loadingDragon ? (
         <Loading />
       ) : (
         <motion.div
@@ -38,14 +35,14 @@ const Details = () => {
             >
               Detalhes do dragão.
             </motion.h2>
-            <InfoText name='Nome' text={data?.name} />
-            <InfoText name='Tipo' text={data?.type} />
-            <InfoText name='História' text={data?.histories} />
+            <InfoText name='Nome' text={dragon?.name} />
+            <InfoText name='Tipo' text={dragon?.type} />
+            <InfoText name='História' text={dragon?.histories} />
             <InfoText
               name='Data de criação'
               text={
-                data?.createdAt &&
-                new Date(data.createdAt).toLocaleDateString('pt-BR')
+                dragon?.createdAt &&
+                new Date(dragon.createdAt).toLocaleDateString('pt-BR')
               }
             />
 

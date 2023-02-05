@@ -1,6 +1,7 @@
 import { animationItem } from 'animations';
 import { Actions } from 'components';
 import { motion } from 'framer-motion';
+import { useDragons } from 'hooks/useDragons';
 import { IDragon } from 'pages/Form/validation';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -9,20 +10,19 @@ import { dragonImages } from './dragonImages';
 /** Componente Card
  *
  * @param {Object} data - dados a serem exibidos
- * @param {Function} handleDelete - função para remoção do item
  *
  */
 
 type CardProps = {
   data: IDragon;
-  handleDelete: (id: string) => void;
 };
 
-export const Card = ({ data, handleDelete }: CardProps) => {
+export const Card = ({ data }: CardProps) => {
   const navigate = useNavigate();
   const randomImage = useMemo(() => {
     return dragonImages[Math.floor(Math.random() * dragonImages.length)];
   }, []);
+  const { handleDelete } = useDragons();
 
   return (
     <motion.div
