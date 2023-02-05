@@ -42,7 +42,6 @@ const Home = () => {
           {data.map((item) => (
             <Card
               data={item}
-              handleEdit={() => {}}
               handleDelete={() => {}}
               handleDetails={() => {}}
             />

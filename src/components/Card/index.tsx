@@ -1,5 +1,6 @@
 import { Actions } from 'components';
 import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { dragonImages } from './dragonImages';
 
 /** Componente Card
@@ -19,17 +20,12 @@ type CardProps = {
     histories?: string;
     id: string;
   };
-  handleEdit: () => void;
   handleDelete: () => void;
   handleDetails: () => void;
 };
 
-export const Card = ({
-  data,
-  handleEdit,
-  handleDelete,
-  handleDetails
-}: CardProps) => {
+export const Card = ({ data, handleDelete, handleDetails }: CardProps) => {
+  const navigate = useNavigate();
   const randomImage = useMemo(() => {
     return dragonImages[Math.floor(Math.random() * dragonImages.length)];
   }, []);
@@ -49,7 +45,9 @@ export const Card = ({
 
         <div className='self-center pl-2 pr-4 md:px-3'>
           <Actions
-            handleEdit={handleEdit}
+            handleEdit={() =>
+              navigate(`/form/${data?.id}`, { state: { photo: randomImage } })
+            }
             handleDelete={handleDelete}
             handleDetails={handleDetails}
             id={data?.id}

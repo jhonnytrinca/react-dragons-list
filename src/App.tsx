@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const Login = React.lazy(() => import('pages/Login'));
 const Home = React.lazy(() => import('pages/Home'));
+const Form = React.lazy(() => import('pages/Form'));
 
 function App() {
   return (
@@ -12,8 +13,12 @@ function App() {
         <Toast />
         <React.Suspense fallback={null}>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />}></Route>
+            <Route path='/' element={<Home />}>
+              {['form', 'form/:id'].map((path: string) => (
+                <Route path={path} element={<Form />} />
+              ))}
+            </Route>
+            <Route path='/login' element={<Login />} />
           </Routes>
         </React.Suspense>
       </BrowserRouter>

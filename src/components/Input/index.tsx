@@ -57,8 +57,6 @@ export const Input = ({
                 {...(field as any)}
                 className='w-full pl-2 placeholder:text-gray-400'
               />
-              {console.log('field', field)}
-              {console.log('meta', meta)}
               {!!clearValue && (
                 <Button
                   onClick={() => setFieldValue(field.name, '')}
