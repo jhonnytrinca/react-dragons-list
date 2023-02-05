@@ -7,6 +7,7 @@ import { HiExclamationCircle } from 'react-icons/hi';
  *
  * @param {string} type - tipo do imput. Padrão 'text'
  * @param {Icon} icon - icone a ser exibido dentro do input
+ * @param {Function} onClickIcon - função ao ser chamada ao clicar no ícone
  * @param {string} className - classes adicionais de estilização
  * @param {string} name - nome do campo
  * @param {string} placeholder - texto de placeholder do input
@@ -17,6 +18,7 @@ import { HiExclamationCircle } from 'react-icons/hi';
 type InputProps = {
   type?: string;
   icon?: any;
+  onClickIcon?: () => void;
   className?: string;
   name: string;
   placeholder: string;
@@ -29,6 +31,7 @@ export const Input = ({
   className,
   name,
   placeholder,
+  onClickIcon,
   label
 }: InputProps) => (
   <Field name={name}>
@@ -44,7 +47,7 @@ export const Input = ({
             }`}
           >
             <label className='absolute -top-4 bgMainColor px-2'>{label}</label>
-            {Icon && <Icon size={26} />}
+            {Icon && <Icon size={26} onClick={onClickIcon} />}
             <input
               type={type}
               onChange={field.onChange}

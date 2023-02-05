@@ -6,7 +6,8 @@
 
 @layer components {
   [type='text'],
-  [type='email'] {
+  [type='email'],
+  [type='password'] {
     @apply focus:ring-offset-0 focus:ring-transparent focus:outline-none border-none;
   }
 

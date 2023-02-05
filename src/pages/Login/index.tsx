@@ -5,10 +5,12 @@ import { RegisterForm } from './RegisterForm';
 import { IUser, initialValues, validationSchema } from './validation';
 import { motion } from 'framer-motion';
 import { animationContainer, animationItem, fadeAnimation } from 'animations';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import loginDragon from 'images/login-dragon.svg';
 
 const Login = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const formik = useFormik<IUser>({
     initialValues,
     validationSchema,
@@ -50,6 +52,9 @@ const Login = () => {
               name='password'
               placeholder='Informe sua senha'
               label='Senha'
+              type={showPassword ? 'text' : 'password'}
+              icon={showPassword ? AiOutlineEyeInvisible : AiOutlineEye}
+              onClickIcon={() => setShowPassword(!showPassword)}
             />
             <Button
               type='submit'
