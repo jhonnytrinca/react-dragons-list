@@ -8,12 +8,14 @@ export const useDragons = () => {
   const navigate = useNavigate();
 
   const {
-    data: list,
+    data,
     isLoading: loadingList,
     mutate: mutateList
   } = useSWR('/', DragonsService.getAll, {
     fallbackData: []
   });
+
+  const list = data.sort((a, b) => a.name.localeCompare(b.name));
 
   const { data: dragon, isLoading: loadingDragon } = useSWR(
     `/${id}`,
