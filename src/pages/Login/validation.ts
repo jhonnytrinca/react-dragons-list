@@ -11,7 +11,7 @@ export type IRegisterUser = IUser & {
 
 export const initialValues = { email: '', password: '' }
 
-export const validationSchema = yup.object().shape({
+const loginSchema = {
   email: yup
     .string()
     .email('Digite um email válido')
@@ -20,9 +20,15 @@ export const validationSchema = yup.object().shape({
     .string()
     .min(6, 'Mínimo seis caracteres')
     .required('Campo obrigatório'),
+}
+
+export const validationSchema = yup.object().shape(loginSchema);
+
+export const registerValidationSchema = yup.object().shape({
+  ...loginSchema,
   confirmPassword: yup
     .string()
     .min(6, 'Mínimo seis caracteres')
     .oneOf([yup.ref('password'), null], 'Senhas não conferem!')
     .required('Campo obrigatório')
-});
+})

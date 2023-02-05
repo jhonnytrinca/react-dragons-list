@@ -4,9 +4,12 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fadeAnimation } from 'animations';
+import { MdLogout } from 'react-icons/md';
+import { useAuth } from 'hooks/useAuth';
 
 export const Header = () => {
   const navigate = useNavigate();
+  const { handleLogout } = useAuth();
 
   return (
     <div className='flex justify-center w-full h-14 shadow-md bgMainColor'>
@@ -20,7 +23,7 @@ export const Header = () => {
           React Dragons List.
         </motion.p>
         <motion.div
-          className='flex gap-4 sm:gap-8'
+          className='flex gap-4 sm:gap-5'
           variants={fadeAnimation}
           initial='hidden'
           animate='visible'
@@ -36,6 +39,13 @@ export const Header = () => {
             </span>
           </Button>
           <Toggle />
+          <Button
+            onClick={handleLogout}
+            className='textMainColor gap-2 text-sm'
+          >
+            <MdLogout />
+            <p>Sair</p>
+          </Button>
         </motion.div>
       </div>
     </div>

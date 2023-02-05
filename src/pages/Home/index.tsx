@@ -1,7 +1,7 @@
 import { Card, Header, Loading } from 'components';
 import { Outlet } from 'react-router-dom';
 import useSWR from 'swr';
-import DragonsService from 'service';
+import DragonsService from 'services';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { animationContainer } from 'animations';

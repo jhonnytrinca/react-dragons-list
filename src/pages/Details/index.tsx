@@ -1,7 +1,7 @@
 import { Button, InfoText, Loading, Modal } from 'components';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import useSWR from 'swr';
-import DragonsService from 'service';
+import DragonsService from 'services';
 import { motion } from 'framer-motion';
 import { animationContainer, animationItem } from 'animations';
 

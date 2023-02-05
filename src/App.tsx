@@ -1,10 +1,21 @@
 import { Toast } from 'components';
 import { Home, Form, Login, Details } from 'pages';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login', { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
   return (
-    <BrowserRouter>
+    <>
       <Toast />
       <Routes>
         <Route path='/' element={<Home />}>
@@ -16,7 +27,7 @@ function App() {
 
         <Route path='login' element={<Login />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

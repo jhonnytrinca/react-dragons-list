@@ -1,10 +1,18 @@
 import { FormikProvider, useFormik } from 'formik';
 import { Button, Input } from 'components';
-import { initialValues, IRegisterUser, validationSchema } from './validation';
+import {
+  initialValues,
+  IRegisterUser,
+  registerValidationSchema
+} from './validation';
 import { animationContainer, animationItem } from 'animations';
 import { motion } from 'framer-motion';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from 'services/firebase';
+import toast from 'react-hot-toast';
+import { useAuth } from 'hooks/useAuth';
 
 type Props = {
   closeModal: () => void;
@@ -13,17 +21,33 @@ type Props = {
 export const RegisterForm = ({ closeModal }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [createUserWithEmailAndPassword, _, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const { validateToken } = useAuth();
 
   const formik = useFormik<IRegisterUser>({
     initialValues: { ...initialValues, confirmPassword: '' },
-    validationSchema,
+    validationSchema: registerValidationSchema,
     onSubmit: (values) => handleCreateUser(values)
   });
 
-  const handleCreateUser = (values: any) => {
-    console.log(values);
-    closeModal();
+  const handleCreateUser = (values: IRegisterUser) => {
+    const { email, password } = values;
+    createUserWithEmailAndPassword(email, password).then((res) => {
+      !!res && validateToken();
+      formik.setSubmitting(false);
+    });
   };
+
+  useEffect(() => {
+    if (!loading && error) {
+      toast.error(
+        error.message.includes('email-already-in-use')
+          ? 'E-mail já cadastrado'
+          : 'Ocorreu um erro, tente novamente'
+      );
+    }
+  }, [error, loading]);
 
   return (
     <FormikProvider value={formik}>
@@ -71,11 +95,11 @@ export const RegisterForm = ({ closeModal }: Props) => {
           <Button
             type='submit'
             onClick={formik.handleSubmit}
-            disabled={!formik.isValid}
+            disabled={!formik.isValid || formik.isSubmitting}
             className='w-full sm:w-1/3'
             variant='primary'
           >
-            Cadastrar
+            {loading ? 'Carregando...' : 'Cadastrar'}
           </Button>
         </motion.div>
       </motion.div>

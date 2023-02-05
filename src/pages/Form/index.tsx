@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { initialValues, validationSchema } from './validation';
 import useSWR, { mutate } from 'swr';
-import DragonsService from 'service';
+import DragonsService from 'services';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { animationContainer, animationItem } from 'animations';
