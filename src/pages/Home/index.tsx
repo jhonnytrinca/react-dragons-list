@@ -1,4 +1,4 @@
-import { Card, Header } from 'components';
+import { Card, Header, Loading } from 'components';
 import { Outlet } from 'react-router-dom';
 import useSWR from 'swr';
 import DragonsService from 'service';
@@ -24,11 +24,15 @@ const Home = () => {
       <Header />
 
       <div className='p-2 sm:p-4 max-w-screen-xl mx-auto my-10'>
-        <div className='flex gap-4 sm:gap-10 flex-wrap justify-center'>
-          {data.map((item) => (
-            <Card data={item} handleDelete={handleDelete} />
-          ))}
-        </div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className='flex gap-4 sm:gap-10 flex-wrap justify-center'>
+            {data.map((item) => (
+              <Card data={item} handleDelete={handleDelete} />
+            ))}
+          </div>
+        )}
       </div>
 
       <Outlet />

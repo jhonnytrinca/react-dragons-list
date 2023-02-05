@@ -1,6 +1,6 @@
 type InfoTextProps = {
   name: string;
-  text: string;
+  text: string | undefined;
 };
 
 export const InfoText = ({ name, text }: InfoTextProps) => (

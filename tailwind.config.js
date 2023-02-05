@@ -19,7 +19,8 @@ module.exports = {
         }
       },
       animation: {
-        'title-animation': '3s linear 0s infinite alternate titleAnimation'
+        'title-animation': '3s linear 0s infinite alternate titleAnimation',
+        'spin-loading': 'spin 2.5s linear infinite'
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif']
