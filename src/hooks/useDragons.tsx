@@ -12,14 +12,16 @@ export const useDragons = () => {
     isLoading: loadingList,
     mutate: mutateList
   } = useSWR('/', DragonsService.getAll, {
-    fallbackData: []
+    fallbackData: [],
+    revalidateOnFocus: false
   });
 
   const list = data.sort((a, b) => a.name.localeCompare(b.name));
 
   const { data: dragon, isLoading: loadingDragon } = useSWR(
-    `/${id}`,
-    DragonsService.getById
+    id ? `/${id}` : '',
+    DragonsService.getById,
+    { revalidateOnFocus: false }
   );
 
   const handleDelete = async (id: string) => {

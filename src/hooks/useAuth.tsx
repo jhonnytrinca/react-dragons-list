@@ -11,8 +11,8 @@ export const useAuth = () => {
   const validateToken = useCallback(() => {
     user?.getIdTokenResult().then((result) => {
       sessionStorage.setItem('token', result.token);
-      navigate('/');
     });
+    navigate('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
