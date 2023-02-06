@@ -24,6 +24,10 @@
   }
 
   .bgMainColor {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  .cardMainColor {
     @apply bg-white dark:bg-gray-600;
   }
 
@@ -55,6 +59,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
 code {

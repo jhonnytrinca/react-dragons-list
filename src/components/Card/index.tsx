@@ -26,7 +26,7 @@ export const Card = ({ data }: CardProps) => {
 
   return (
     <motion.div
-      className='rounded-xl w-40 md:w-48 h-fit flex flex-col gap-2 relative shadow hover:shadow-xl bgMainColor p-3'
+      className='rounded-xl w-40 md:w-48 h-fit flex flex-col gap-2 relative shadow hover:shadow-xl cardMainColor p-3'
       variants={animationItem}
     >
       <img src={randomImage} alt='Imagem de dragão' />

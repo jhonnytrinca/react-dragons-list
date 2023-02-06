@@ -11,7 +11,7 @@ const Home = () => {
   const { list, loadingList } = useDragons();
 
   return (
-    <div className='bg-gray-100 dark:bg-gray-800 min-h-screen'>
+    <div className='min-h-screen'>
       <Header />
 
       <div className='p-2 sm:p-4 max-w-screen-xl mx-auto my-10'>
