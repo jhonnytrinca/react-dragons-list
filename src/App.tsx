@@ -1,31 +1,21 @@
-import { Toast } from 'components';
-import { Home, Form, Login, Details } from 'pages';
-import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { PrivateRoute, Toast } from 'components';
+import { List, Form, Login, Details } from 'pages';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const navigate = useNavigate();
-  const token = sessionStorage.getItem('token');
-
-  useEffect(() => {
-    if (!token) {
-      navigate('/login', { replace: true });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
-
   return (
     <>
       <Toast />
       <Routes>
-        <Route path='/' element={<Home />}>
+        <Route path='/' element={<Login />} />
+        <Route path='dragons' element={<PrivateRoute />}>
+          <Route index={true} element={<List />} />
           {['form', 'form/:id'].map((path: string) => (
             <Route path={path} element={<Form />} key={path} />
           ))}
           <Route path=':id' element={<Details />} />
         </Route>
-
-        <Route path='login' element={<Login />} />
+        <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>
     </>
   );

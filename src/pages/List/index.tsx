@@ -1,13 +1,10 @@
 import { Card, Header, Loading } from 'components';
 import { Outlet } from 'react-router-dom';
-import useSWR from 'swr';
-import DragonsService from 'services';
-import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { animationContainer } from 'animations';
 import { useDragons } from 'hooks/useDragons';
 
-const Home = () => {
+const List = () => {
   const { list, loadingList } = useDragons();
 
   return (
@@ -36,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default List;

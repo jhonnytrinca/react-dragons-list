@@ -12,7 +12,7 @@ export const useAuth = () => {
     user?.getIdTokenResult().then((result) => {
       sessionStorage.setItem('token', result.token);
     });
-    navigate('/');
+    navigate('dragons');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 

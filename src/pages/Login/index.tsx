@@ -11,6 +11,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from 'services/firebase';
 import toast from 'react-hot-toast';
 import { useAuth } from 'hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -18,6 +19,25 @@ const Login = () => {
   const [signInWithEmailAndPassword, _, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const { validateToken } = useAuth();
+  const navigate = useNavigate();
+  const token = sessionStorage.getItem('token');
+
+  useEffect(() => {
+    !!token && navigate('dragons', { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (!loading && error) {
+      toast.error(
+        error?.message?.includes('wrong-password')
+          ? 'Senha inválida'
+          : error?.message?.includes('user-not-found')
+          ? 'Usuário não encontrado'
+          : 'Erro na autenticação, tente novamente'
+      );
+    }
+  }, [error, loading]);
 
   const formik = useFormik<IUser>({
     initialValues,
@@ -32,18 +52,6 @@ const Login = () => {
       formik.setSubmitting(false);
     });
   };
-
-  useEffect(() => {
-    if (!loading && error) {
-      toast.error(
-        error?.message?.includes('wrong-password')
-          ? 'Senha inválida'
-          : error?.message?.includes('user-not-found')
-          ? 'Usuário não encontrado'
-          : 'Erro na autenticação, tente novamente'
-      );
-    }
-  }, [error, loading]);
 
   return (
     <>
