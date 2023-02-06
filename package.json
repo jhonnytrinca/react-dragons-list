@@ -34,7 +34,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "cy:ct": "cypress open --component -b chrome",
+    "cy:run": "cypress run --component"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +58,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "@testing-library/cypress": "^9.0.0",
     "cypress": "^12.5.1",
     "tailwindcss": "^3.2.4"
   },
