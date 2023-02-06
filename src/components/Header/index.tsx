@@ -12,7 +12,7 @@ export const Header = () => {
   const { handleLogout } = useAuth();
 
   return (
-    <div className='flex justify-center w-full h-14 shadow-md bgMainColor'>
+    <div className='flex justify-center w-full h-14 shadow-md cardMainColor'>
       <div className='flex container px-4 max-w-screen-xl mx-auto justify-between items-center'>
         <motion.p
           className='sm:text-2xl mainColor font-poppins'
