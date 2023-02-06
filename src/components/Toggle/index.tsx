@@ -18,6 +18,7 @@ export const Toggle = () => {
         darkTheme ? 'justify-end bg-slate-900' : 'justify-start bg-sky-400'
       } `}
       onClick={() => (theme === 'light' ? setTheme('dark') : setTheme('light'))}
+      data-testId='theme-toggle'
     >
       <motion.div
         className={`w-6 h-6 rounded-full flex items-center justify-center ${

@@ -32,6 +32,7 @@ export const Header = () => {
             onClick={() => navigate('/form')}
             variant='tertiary'
             className='overflow-hidden whitespace-nowrap group w-8 sm:hover:w-36 transition-width'
+            data-testId='add-new-button'
           >
             <AiOutlinePlus size={16} />
             <span className='pr-2 hidden sm:group-hover:block'>
@@ -42,6 +43,7 @@ export const Header = () => {
           <Button
             onClick={handleLogout}
             className='textMainColor gap-2 text-sm'
+            data-testId='logout-button'
           >
             <MdLogout />
             <p>Sair</p>

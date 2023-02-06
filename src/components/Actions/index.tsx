@@ -17,17 +17,34 @@ type ActionsProps = {
   id?: string;
 };
 
+type ButtonProps = {
+  onClick: () => void;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  bg: string;
+  id: string;
+  content: string;
+  testId: string;
+};
+
 export const Actions = ({
   handleEdit,
   handleDelete,
   handleDetails,
   id
 }: ActionsProps) => {
-  const ActionButton = ({ onClick, icon: Icon, bg, id, content }: any) => (
+  const ActionButton = ({
+    onClick,
+    icon: Icon,
+    bg,
+    id,
+    content,
+    testId
+  }: ButtonProps) => (
     <Tooltip id={id} content={content}>
       <Button
         onClick={onClick}
         className={`actionsButton ${bg} dark:text-gray-100`}
+        data-testId={testId}
       >
         <Icon />
       </Button>
@@ -42,6 +59,7 @@ export const Actions = ({
         icon={MdEdit}
         id={`edit-${id}`}
         content='Editar'
+        testId='edit-button'
       />
 
       <ActionButton
@@ -50,6 +68,7 @@ export const Actions = ({
         icon={MdDelete}
         id={`delete-${id}`}
         content='Excluir'
+        testId='delete-button'
       />
 
       <ActionButton
@@ -58,6 +77,7 @@ export const Actions = ({
         icon={MdLightbulb}
         id={`details-${id}`}
         content='Ver detalhes'
+        testId='details-button'
       />
     </div>
   );

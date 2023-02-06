@@ -6,8 +6,8 @@ export default defineConfig({
       framework: "create-react-app",
       bundler: "webpack",
     },
-    viewportHeight: 1080,
-    viewportWidth: 1920,
+    viewportHeight: 768,
+    viewportWidth: 1366,
     specPattern: 'cypress/**/*.test.{jsx,tsx}',
   },
   retries: {

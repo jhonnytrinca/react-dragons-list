@@ -19,7 +19,7 @@ export const useAuth = () => {
   const handleLogout = useCallback(() => {
     signOut(auth);
     sessionStorage.removeItem('token');
-    navigate('/login');
+    navigate('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

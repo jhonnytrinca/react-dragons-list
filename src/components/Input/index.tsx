@@ -15,7 +15,7 @@ import { HiExclamationCircle } from 'react-icons/hi';
  *
  */
 
-type InputProps = {
+export type InputProps = {
   type?: string;
   icon?: any;
   onClickIcon?: () => void;
