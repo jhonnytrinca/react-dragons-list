@@ -29,7 +29,7 @@ export const Header = () => {
           animate='visible'
         >
           <Button
-            onClick={() => navigate('/form')}
+            onClick={() => navigate('form')}
             variant='tertiary'
             className='overflow-hidden whitespace-nowrap group w-8 sm:hover:w-36 transition-width'
             data-testId='add-new-button'

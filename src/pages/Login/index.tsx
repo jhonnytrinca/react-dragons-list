@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FormikProvider, useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { Button, Input, Modal } from 'components';

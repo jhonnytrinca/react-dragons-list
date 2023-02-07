@@ -65,7 +65,7 @@ const Form = () => {
                 >
                   <Button
                     type='submit'
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate('/dragons')}
                     className='w-full sm:w-1/3'
                     variant='secondary'
                   >

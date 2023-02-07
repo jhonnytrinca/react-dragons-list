@@ -44,7 +44,7 @@ export const useDragons = () => {
           });
       toast.success(`Dragão ${id ? 'atualizado' : 'cadastrado'} com sucesso!`);
       mutateList();
-      navigate('/');
+      navigate('/dragons');
     } catch (e) {
       toast.error('Ocorreu um erro, tente novamente!');
     }
