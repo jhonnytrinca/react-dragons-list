@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-dragons-list/static/css/main.c1847073.css",
-    "main.js": "/react-dragons-list/static/js/main.1d187944.js",
+    "main.js": "/react-dragons-list/static/js/main.2680020f.js",
     "static/js/787.05afbeaf.chunk.js": "/react-dragons-list/static/js/787.05afbeaf.chunk.js",
     "static/media/Dragon-amico.svg": "/react-dragons-list/static/media/Dragon-amico.72f1587fbe7139572d6aedcc0c6df3fd.svg",
     "static/media/Dragon-amico2.svg": "/react-dragons-list/static/media/Dragon-amico2.119a8bb2494682f01265e1026af18c63.svg",
@@ -18,11 +18,11 @@
     "static/media/Dragon-pana1.svg": "/react-dragons-list/static/media/Dragon-pana1.a7c4a4035f4519f9aa20503b8614a984.svg",
     "index.html": "/react-dragons-list/index.html",
     "main.c1847073.css.map": "/react-dragons-list/static/css/main.c1847073.css.map",
-    "main.1d187944.js.map": "/react-dragons-list/static/js/main.1d187944.js.map",
+    "main.2680020f.js.map": "/react-dragons-list/static/js/main.2680020f.js.map",
     "787.05afbeaf.chunk.js.map": "/react-dragons-list/static/js/787.05afbeaf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c1847073.css",
-    "static/js/main.1d187944.js"
+    "static/js/main.2680020f.js"
   ]
 }
