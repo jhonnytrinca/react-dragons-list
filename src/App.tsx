@@ -9,11 +9,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='dragons' element={<PrivateRoute />}>
-          <Route index={true} element={<List />} />
-          {['form', 'form/:id'].map((path: string) => (
-            <Route path={path} element={<Form />} key={path} />
-          ))}
-          <Route path=':id' element={<Details />} />
+          <Route path='' element={<List />}>
+            {['form', 'form/:id'].map((path: string) => (
+              <Route path={path} element={<Form />} key={path} />
+            ))}
+            <Route path=':id' element={<Details />} />
+          </Route>
         </Route>
         <Route path='*' element={<Navigate to='/' replace />} />
       </Routes>

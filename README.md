@@ -1,46 +1,131 @@
-# Getting Started with Create React App
+# React Dragons list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação desenvolvida para listagem, criação e edição de dragões.
+Para acesso a aplicação, é necessário login com email e senha válidos ou cadastrar um usuário por meio da tela de login.
 
-## Available Scripts
+[Clique aqui](https://jhonnytrinca.github.io/react-dragons-list/) para acessar a aplicação.
 
-In the project directory, you can run:
+## Tecnologias utilizadas
 
-### `yarn start`
+- [ReactJS](https://reactjs.org/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [SWR](https://swr.vercel.app/)
+- [Tailwind](https://tailwindcss.com/)
+- [Formik](https://formik.org/)
+- [Yup](https://www.npmjs.com/package/yup)
+- [Cypress Component Testing](https://www.cypress.io/blog/2021/04/06/cypress-component-testing-react/)
+- [React Hot Toast](https://react-hot-toast.com/)
+- [Firebase](https://firebase.google.com/)
+- [React Firebase Hooks](https://github.com/csfrequency/react-firebase-hooks/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Tooltip](https://github.com/ReactTooltip/react-tooltip)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Informações sobre tecnologias utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Axios** - Utilizado para o consumo dos dados da API.
+- **SWR** - Para otimização dos dados exibidos em tela, utilizando do 'state-while-revalidating' para exibir dados guardados em cache enquanto espera a requisição ser finalizada para revalidação dos dados. Dessa forma, em casos de mudança de página ou que o usuário busque por um termo já pesquisado anteriormente, não há incidência de loading;
+- **Tailwind** - Utilizado na estilização da aplicação, framework que traz facilidade na aplicação e customização, código enxuto e grande ganho na responsividade e aplicação de dark mode;
+- **Formik** - Facilitador na criação de formulários, utilizado para guardar os quadrinhos selecionados, nome e email para envio dos dados;
+- **Yup** - Trabalhando juntamente do Formik, faz a validação de campos obrigatórios;
+- **Cypress Component Testing** - Plataforma de testes do Cypress voltada a testes de componentes do React, oferecendo agilidade e precisão na criação de testes, por possuir uma interface gráfica mostrando de forma intuitiva todas as etapas do teste e indicação de falhas;
+- **Firebase / React Firebase Hooks** - Utilizados para a criação e validação de usuários para login na aplicação.
+- **Framer Motion** - Utilizado para criação de animações da aplicação
+- **React Icons** - Utilizado para ícones da aplicação
+- **React Tooltip** - Utilizado para a funcionalidade de tooltip, para exibição de um pop up informativo ao realizar o hover.
 
-### `yarn test`
+## Rodando localmente
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para rodar esse projeto será necessário possuir o [NodeJs](https://nodejs.org/en/), [Git](https://git-scm.com/) e um editor de sua preferência, como [VS Code](https://code.visualstudio.com/).
 
-### `yarn build`
+Clone o repositório e o acesse na pasta do projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+$ git clone https://github.com/jhonnytrinca/react-dragons-list
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+No diretório do projeto, instale as dependências com:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`yarn` ou `npm install`
 
-### `yarn eject`
+Além disso, é necessário possuir um projeto ativo no Firebase com a autenticação via e-mail e senha configurados. Após isso, crie um arquivo `.env.local` e insira como variáveis de ambiente os valores referentes à credencial informada no painel do Firebase.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Após isso, para rodar o projeto, utilize:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`yarn start` ou `npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Isso rodará a aplicação em modo de desenvolvimento.\
+Abra [http://localhost:3000](http://localhost:3000) para visualização no browser.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Rodando os testes
 
-## Learn More
+Para rodar os testes, o Cypress oferece duas formas de visualização:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`yarn cy:run` ou `npm run cy:run` - roda do modo clássico, fazendo a verificação dos testes e exibindo seus resultados pelo terminal;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`yarn cy:ct` ou `npm run cy:ct` - roda do modo gráfico, abrindo em uma nova janela do browser os testes, sendo possível ver em tela cada etapa do teste sendo realizada, de forma semelhante ao que o usuário final faria. Permite também localizar com mais facilidade qualquer tipo de problema.
+
+Devido problemas de compatibilidade entre o Firebase e os testes de componentes oferecidos pelo Cypress até o presente momento, é necessário ajustar as variáveis de ambiente fornecidas para o Firebase como valores fixos antes de acessar aos testes.
+
+## Screenshots
+
+### - Página login
+
+![Página login](https://i.imgur.com/v1riWVt.jpg)
+
+### - Página em dark mode
+
+![Página login em dark mode](https://i.imgur.com/wrRA2uc.jpg)
+
+#### - Listagem
+
+![Listagem](https://i.imgur.com/H0O8KH9.jpg)
+
+#### - Listagem em dark mode
+
+![Listagem em dark mode](https://i.imgur.com/e8pNPQo.jpg)
+
+#### - Página de detalhes
+
+![Página de detalhes](https://i.imgur.com/vnzUcxV.jpg)
+
+#### - Página de detalhes em dark mode
+
+![Página de detalhes em dark mode](https://i.imgur.com/Qhh7Sp7.jpg)
+
+#### - Página de edição
+
+![Página de edição](https://i.imgur.com/tEGzkKx.jpg)
+
+#### - Página de edição em dark mode
+
+![Página de edição em dark mode](https://i.imgur.com/0NsPkky.jpg)
+
+#### - Página de login mobile em light e dark mode
+
+![Página de login mobile em light e dark mode](https://i.imgur.com/u6MGKbc.jpg)
+
+#### - Listagem mobile em light e dark mode
+
+![Listagem mobile em light e dark mode](https://i.imgur.com/Ged6AXQ.jpg)
+
+#### - Página mobile de detalhes em light e dark mode
+
+![Página mobile de detalhes em light e dark mode](https://i.imgur.com/u4LjcAV.jpg)
+
+#### - Página mobile de edição em light e dark mode
+
+![Página mobile de edição em light e dark mode](https://i.imgur.com/8NTLCjH.jpg)
+
+#### - Testes de componentes e página realizados
+
+![Testes de componentes e página realizados](https://i.imgur.com/6H39uuj.png)
+
+## Contribuindo
+
+Para contribuir nesse projeto:
+
+- Faça um fork do projeto;
+- Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
+- Crie um commit com suas alterações: `git commit -m "feature: my feature"`
+- Faça o envio das alterações: `git push origin my-feature`
