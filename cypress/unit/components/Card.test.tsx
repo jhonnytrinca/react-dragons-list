@@ -1,18 +1,11 @@
 import { Card } from 'components';
 import DragonsService from 'services';
-
-const data = {
-  createdAt: '2023-02-05T19:08:03.175Z',
-  name: 'Toothless',
-  type: 'Fire',
-  histories: 'GOT',
-  id: '12'
-};
+import { DRAGON_UNIT } from '../../mocks';
 
 describe('Card component', () => {
   beforeEach(() => {
     cy.stub(DragonsService, 'getAll').returns([]);
-    cy.render(<Card data={data} />);
+    cy.render(<Card data={DRAGON_UNIT} />);
   });
   it('should show card info', () => {
     cy.findByText('#12 - Toothless').should('be.visible');
