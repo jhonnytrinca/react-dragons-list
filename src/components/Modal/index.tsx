@@ -27,6 +27,7 @@ export const Modal = ({ className, children }: ModalProps) => {
         className={`bgMainColor p-10 rounded-xl flex flex-col shadow-lg ${
           className ?? ''
         }`}
+        data-testId='modal'
       >
         {children}
       </div>
